@@ -1,11 +1,11 @@
 import styles from './page.module.css';
 import Image from "next/image";
 import {notFound} from "next/navigation";
-// import {getMeals} from "@/lib/meals";
+import {getMeals} from "@/lib/meals";
 
 const MealDetail = async({params}) => {
     // const {mealSlug} = params;
-    // const meals = await  getMeals()
+    const meals = await  getMeals()
     // const foundMeal =  meals.find(meal => meal.slug === mealSlug);
     //
     // if (!foundMeal) {
