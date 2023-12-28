@@ -1,13 +1,21 @@
 import styles from './page.module.css';
 import Image from "next/image";
-import {getMeal} from "@/lib/meals";
+import {getMeal, getMeals} from "@/lib/meals";
 import {notFound} from "next/navigation";
 
 
 const MealDetail= async ({params}) => {
+    const isOnline = process.env.ONLINE_OFFLINE_MODE
     const {mealSlug} = params;
-    const foundMeal= await  getMeal(mealSlug);
 
+    let foundMeal;
+
+    if(isOnline ==='OFFLINE'){
+        foundMeal= await  getMeal(mealSlug);
+    }else{
+        const meals = await getMeals();
+         foundMeal= meals.find(meal=>meal.slug===mealSlug);
+    }
     if(!foundMeal){
         notFound();
     }
