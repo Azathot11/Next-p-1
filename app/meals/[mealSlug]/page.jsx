@@ -3,18 +3,26 @@ import Image from "next/image";
 import {notFound} from "next/navigation";
 import {getMeals} from "@/lib/meals";
 
+
+const Meals = async () => {
+    const meals = await getMeals();
+    return meals;
+}
 const MealDetail = async({params}) => {
-    // const {mealSlug} = params;
-    const meals = await  getMeals()
+    const {mealSlug} = params;
+    const meals = await Meals();
+    console.log(meals)
+    // const meals = await  getMeals()
     // const foundMeal =  meals.find(meal => meal.slug === mealSlug);
-    //
+
     // if (!foundMeal) {
     //     notFound();
     // }
     // foundMeal.instructions = foundMeal.instructions.replace(/\n/g, '<br/>');
     return (
         <>
-            <h1>Test</h1>
+            <p>paulio</p>
+            {/*<h1>Test</h1>*/}
             {/*<header className={styles.header}>*/}
             {/*    <div className={styles.image}>*/}
             {/*        <Image src={foundMeal.image} alt={foundMeal.title} fill/>*/}
