@@ -1,13 +1,16 @@
 import styles from './page.module.css';
 import Image from "next/image";
 import {getMeal} from "@/lib/meals";
-import LoadingOut from "@/app/meals/loading-out";
-import {Suspense} from "react";
+import {notFound} from "next/navigation";
 
 
 const MealDetail= async ({params}) => {
     const {mealSlug} = params;
     const foundMeal= await  getMeal(mealSlug);
+
+    if(!foundMeal){
+        notFound();
+    }
 
     foundMeal.instructions = foundMeal.instructions.replace(/\n/g, '<br/>');
     return (
