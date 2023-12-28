@@ -6,7 +6,7 @@ import {notFound} from "next/navigation";
 
 const MealDetail = ({params}) => {
     const {mealSlug} = params;
-    const foundMeal = getMeal(mealSlug);
+    const foundMeal = getMeal(mealSlug) || [];
 
     if (!foundMeal) {
         notFound();
