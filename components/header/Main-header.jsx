@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
@@ -5,6 +6,7 @@ import Image from "next/image";
 import logoImage from '@/assets/logo.png';
 import styles from './main-header.module.css';
 import MainHeaderBackground from "@/components/header/Main-header-background";
+import NavLink from "@/components/header/Nav-link";
 
 const MainHeader = () => {
     return (
@@ -18,10 +20,10 @@ const MainHeader = () => {
                 <nav className={styles.nav}>
                     <ul>
                         <li>
-                            <Link href={'/meals'}>Browse Meals</Link>
+                            <NavLink href={'/meals'} title={'Browse Meals'}/>
                         </li>
                         <li>
-                            <Link href={'/community '}>Foodies Community</Link>
+                            <NavLink href={'/community'} title={'Foodies Community'}/>
                         </li>
                     </ul>
                 </nav>
