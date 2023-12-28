@@ -1,12 +1,12 @@
 import styles from './page.module.css';
 import Image from "next/image";
-import {getMeal} from "@/lib/meals";
 import {notFound} from "next/navigation";
+import {getMeals} from "@/lib/meals";
 
-
-const MealDetail = ({params}) => {
+const MealDetail = async({params}) => {
     const {mealSlug} = params;
-    const foundMeal = getMeal(mealSlug);
+    const meals = await  getMeals()
+    const foundMeal =  meals.find(meal => meal.slug === mealSlug);
 
     if (!foundMeal) {
         notFound();
