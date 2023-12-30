@@ -1,12 +1,15 @@
 import styles from './page.module.css';
 import Image from "next/image";
-import {getMeal} from "@/lib/meals";
 import {notFound} from "next/navigation";
+import {dummyMeals} from "@/initdb";
 
 
 const MealDetail = ({params}) => {
     const {mealSlug} = params;
-    const foundMeal = getMeal(mealSlug) || [];
+    // const foundMeal = getMeal(mealSlug) || [];
+
+
+    const foundMeal = dummyMeals.find(meal => meal.slug === mealSlug);
 
     if (!foundMeal) {
         notFound();
