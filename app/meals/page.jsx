@@ -4,7 +4,8 @@ import Link from "next/link";
 import MealsGrid from "@/components/meals/Meals-grid";
 import {getMeals} from "@/lib/meals";
 import LoadingOut from "@/app/meals/loading-out";
-import {dummyMeals} from "@/initdb";
+import {dummyMeals} from "@/usefullData";
+
 
 
 const Meals=async()=>{
