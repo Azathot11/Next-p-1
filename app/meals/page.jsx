@@ -4,9 +4,13 @@ import Link from "next/link";
 import MealsGrid from "@/components/meals/Meals-grid";
 import {getMeals} from "@/lib/meals";
 import LoadingOut from "@/app/meals/loading-out";
+import {dummyMeals} from "@/initdb";
 
 
 const Meals=async()=>{
+    if(process.env.ONLINE_OFFLINE_MODE==='ONLINE'){
+        return <MealsGrid meals={dummyMeals}/>;
+    }
     const meals = await getMeals();
     return   <MealsGrid meals={meals || []}/>;
 }
