@@ -179,8 +179,15 @@ db.prepare(`
 
 async function initData() {
     const stmt = db.prepare(`
-      INSERT INTO meals VALUES (
-         null,
+      INSERT INTO meals (
+         slug,
+         title,
+         image,
+         summary,
+         instructions,
+         creator,
+         creator_email
+      ) VALUES (
          @slug,
          @title,
          @image,
@@ -191,9 +198,13 @@ async function initData() {
       )
    `);
 
+    const getStmt = db.prepare("SELECT 1 FROM meals WHERE slug = ?");
+
     for (const meal of dummyMeals) {
-        stmt.run(meal);
+        const row = getStmt.get(meal.slug);
+        if (!row) {
+            stmt.run(meal);
+        }
     }
 }
-
 initData();

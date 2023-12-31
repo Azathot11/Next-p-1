@@ -6,8 +6,6 @@ import {dummyMeals} from "@/initdb";
 
 const MealDetail = ({params}) => {
     const {mealSlug} = params;
-    // const foundMeal = getMeal(mealSlug) || [];
-
 
     const foundMeal = dummyMeals.find(meal => meal.slug === mealSlug);
 
