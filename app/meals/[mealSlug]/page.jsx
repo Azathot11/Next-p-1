@@ -1,7 +1,8 @@
 import styles from './page.module.css';
 import Image from "next/image";
 import {notFound} from "next/navigation";
-import {dummyMeals} from "@/initdb";
+import {dummyMeals} from "@/usefullData";
+
 
 
 const MealDetail = ({params}) => {
