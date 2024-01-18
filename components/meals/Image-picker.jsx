@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef,useState } from 'react';
-import styles from './Image-picker.module.css';
+import styles from './image-picker.module.css';
 import Image from "next/image";
 
 const ImagePicker = ({label,name}) => {
