@@ -1,10 +1,12 @@
 import classes from './page.module.css';
 import ImagePicker from "@/components/meals/Image-picker";
-import {sharMeal} from "@/lib/actions";
+import { sharMeal} from "@/lib/actions";
+import MealsFormsSubmit from "@/components/meals/Meals-forms-submit";
 
 export default function ShareMealPage() {
 
-
+    let isOnline = false;
+    process.env.ONLINE_OFFLINE_MODE==='ONLINE' && (isOnline = true);
 
     return (
         <>
@@ -45,7 +47,7 @@ export default function ShareMealPage() {
                     </p>
                     <ImagePicker name={'image'} label={'Your Image'}/>
                     <p className={classes.actions}>
-                        <button type="submit">Share Meal</button>
+                        <MealsFormsSubmit/>
                     </p>
                 </form>
             </main>

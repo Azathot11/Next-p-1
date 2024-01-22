@@ -10,6 +10,8 @@ import {dummyMeals} from "@/usefullData";
 
 const Meals=async()=>{
     if(process.env.ONLINE_OFFLINE_MODE==='ONLINE'){
+
+
         return <MealsGrid meals={dummyMeals}/>;
     }
     const meals = await getMeals();
