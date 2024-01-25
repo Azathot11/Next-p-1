@@ -7,6 +7,12 @@ import LoadingOut from "@/app/meals/loading-out";
 import {dummyMeals} from "@/usefullData";
 
 
+export const metadata = {
+    title: 'All meals',
+    description: "Browse all meals that have been shared by our community",
+};
+
+
 
 const Meals=async()=>{
     if(process.env.ONLINE_OFFLINE_MODE==='ONLINE'){

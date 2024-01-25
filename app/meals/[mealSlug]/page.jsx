@@ -4,6 +4,18 @@ import {notFound} from "next/navigation";
 import {dummyMeals} from "@/usefullData";
 
 
+export async function  generateMetadata({params}) {
+
+    const foundMeal = dummyMeals.find(meal => meal.slug === params.mealSlug);
+
+    if (!foundMeal) {
+        notFound();
+    }
+    return{
+        title:foundMeal.title,
+        description:foundMeal.summary,
+    }
+}
 
 const MealDetail = ({params}) => {
     const {mealSlug} = params;
